@@ -10,10 +10,11 @@ Este projeto foi desenvolvido utilizando .NET 8 e segue os princípios da Clean 
 
 ## Estrutura do Projeto
 A estrutura do projeto segue os princípios da Clean Architecture, com os seguintes diretórios:
+- **Api**: A camada API faz parte do nível de apresentação e é crucial para a interação entre o cliente e o servidor. 
 - **Domain**: Contém as entidades e regras de negócio da aplicação.
 - **Application**: Orquestra as operações de alto nível da aplicação.
 - **Infrastructure**: Responsável pela implementação de detalhes externos, como acesso a banco de dados e serviços externos.
-- **Presentation**: Responsável pela interação com o usuário, incluindo a implementação das APIs e UI.
+- **Ui**: Responsável pela interação com o usuário, incluindo a implementação das APIs e UI.
 
 ## Banco de Dados
 - **Dapper**: Utilizado como micro ORM para acessar o banco de dados SQL Server, proporcionando desempenho e simplicidade.
