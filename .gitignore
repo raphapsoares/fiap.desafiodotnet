@@ -133,3 +133,6 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+/.vs/fiap.testedotnet/DesignTimeBuild/.dtbcache.v2
+/.vs/fiap.testedotnet/FileContentIndex/merges/3adbe5f2-6ec0-4a35-b037-a3bd14e7223f.vsidx
+/.vs/fiap.testedotnet/FileContentIndex
