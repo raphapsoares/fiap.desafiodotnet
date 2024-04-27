@@ -1,0 +1,37 @@
+﻿@page
+@model fiap.testedotnet.ui.Pages.Turma.CriarModel
+@{
+
+    <h4> Cadastro de Turma</h4>
+    <hr />
+
+    @if (TempData["MensagensDeErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach (var mensagem in TempData["MensagensDeErro"] as List<string>)
+                {
+                    <li>@mensagem</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <form method="post">
+        <div class="form-group">
+            <label for="cursoId">Curso ID:</label>
+            <input type="number" class="form-control" id="cursoId" name="cursoId" asp-for="TurmaRequest.CursoId">
+        </div>
+        <div class="form-group">
+            <label for="turma">Turma:</label>
+            <input type="text" class="form-control" id="turma" name="turma" asp-for="TurmaRequest.Turma">
+        </div>
+        <div class="form-group">
+            <label for="ano">Ano:</label>
+            <input type="number" class="form-control" id="ano" name="ano" asp-for="TurmaRequest.Ano">
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <a asp-page="./Index" class="btn btn-primary">Voltar a listagem</a>
+    </form>
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model fiap.testedotnet.ui.Pages.Relacionamento.CriarModel
+@{
+    <h1>Criar Relação Aluno-Turma</h1>
+    <hr />
+    @if (TempData["MensagensDeErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach (var mensagem in TempData["MensagensDeErro"] as List<string>)
+                {
+                    <li>@mensagem</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <form method="post">
+        <div class="form-group">
+            <label for="turmaId">Selecione a Turma:</label>
+            <select class="form-control" id="turmaId" asp-for="Request.TurmaId">
+                <option value="">Selecione...</option>
+                @foreach (var turma in Model.Turmas)
+                {
+                    <option value="@turma.Id">@turma.Descricao</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="alunoId">Selecione o Aluno:</label>
+            <select class="form-control" id="alunoId" asp-for="Request.AlunoId">
+                <option value="">Selecione...</option>
+                @foreach (var aluno in Model.Alunos)
+                {
+                    <option value="@aluno.Id">@aluno.Nome</option>
+                }
+            </select>
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-primary">Concluir</button>
+        <a asp-page="./Index" class="btn btn-primary">Voltar a listagem</a>
+    </form>
+}

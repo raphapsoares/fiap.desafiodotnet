@@ -1,0 +1,54 @@
+﻿@page
+@model fiap.testedotnet.ui.Pages.Aluno.IndexModel
+@{
+    ViewData["Title"] = "Lista de Alunos";
+
+    <a asp-page="./Criar" class="btn btn-primary">Criar novo</a>
+    <hr />
+
+    <h1>Lista de Alunos</h1>
+
+    @if (TempData["MensagensDeErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach (var mensagem in TempData["MensagensDeErro"] as List<string>)
+                {
+                    <li>@mensagem</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Usuário</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var aluno in Model.Alunos)
+            {
+                <tr>
+                    <td>@aluno.Nome</td>
+                    <td>@aluno.Usuario</td>
+                    <td>
+                        <a asp-page="./Detalhes" asp-route-id="@aluno.Id" class="btn btn-warning">Detalhes</a>
+                    </td>
+                    <td>
+                        <a asp-page="./Editar" asp-route-id="@aluno.Id" class="btn btn-primary">Editar</a>
+                    </td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@aluno.Id">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

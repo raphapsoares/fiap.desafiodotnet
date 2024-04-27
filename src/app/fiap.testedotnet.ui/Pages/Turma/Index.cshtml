@@ -1,0 +1,54 @@
+﻿@page
+@model fiap.testedotnet.ui.Pages.Turma.IndexModel
+@{
+    ViewData["Title"] = "Lista de Turmas";
+
+    <a asp-page="./Criar" class="btn btn-primary">Criar novo</a>
+    <hr />
+
+    <h1>Lista de Turmas</h1>
+
+    @if (TempData["MensagensDeErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach (var mensagem in TempData["MensagensDeErro"] as List<string>)
+                {
+                    <li>@mensagem</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var turma in Model.Turmas)
+            {
+                <tr>
+                    <td>@turma.Descricao</td>
+                    <td>
+                        <a asp-page="./Detalhes" asp-route-id="@turma.Id" class="btn btn-warning">Detalhes</a>
+                    </td>
+                    <td>
+                        <a asp-page="./Editar" asp-route-id="@turma.Id" class="btn btn-primary">Editar</a>
+                    </td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@turma.Id">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}

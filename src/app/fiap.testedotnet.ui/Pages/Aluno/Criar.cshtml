@@ -1,0 +1,36 @@
+﻿@page
+@model fiap.testedotnet.ui.Pages.Aluno.CriarModel
+@{
+    <h4> Cadastro de Aluno</h4>
+    <hr />
+
+    @if (TempData["MensagensDeErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach (var mensagem in TempData["MensagensDeErro"] as List<string>)
+                {
+                    <li>@mensagem</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <form method="post">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" asp-for="Request.Nome">
+        </div>
+        <div class="form-group">
+            <label for="usuario">Usuário:</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" asp-for="Request.Usuario">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" id="senha" name="senha" asp-for="Request.Senha">
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <a asp-page="./Index" class="btn btn-primary">Voltar a listagem</a>
+    </form>
+}

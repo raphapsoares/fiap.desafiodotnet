@@ -1,0 +1,49 @@
+﻿@page
+@model fiap.testedotnet.ui.Pages.Relacionamento.IndexModel
+@{
+    ViewData["Title"] = "Desafio DotNet - Relacionamento";
+
+    <a asp-page="./Criar" class="btn btn-primary">Criar novo</a>
+    <hr />
+
+    <h1>Relação entre Alunos e Turmas</h1>
+
+    @if (TempData["MensagensDeErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach (var mensagem in TempData["MensagensDeErro"] as List<string>)
+                {
+                    <li>@mensagem</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Turma</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var relacionamento in Model.Relacionamentos)
+            {
+                <tr>
+                    <td>@relacionamento.Aluno</td>
+                    <td>@relacionamento.Turma</td>
+                    <td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id1="@relacionamento.AlunoId" asp-route-id2="@relacionamento.TurmaId">
+                            <button type="submit" class="btn btn-danger">Inativar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
