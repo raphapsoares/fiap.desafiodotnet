@@ -14,7 +14,7 @@ A estrutura do projeto segue os princípios da Clean Architecture, com os seguin
 - **Domain**: Contém as entidades e regras de negócio da aplicação.
 - **Application**: Orquestra as operações de alto nível da aplicação.
 - **Infrastructure**: Responsável pela implementação de detalhes externos, como acesso a banco de dados e serviços externos.
-- **Ui**: Responsável pela interação com o usuário, incluindo a implementação das APIs e UI.
+- **Ui**: Responsável pela interação com o usuário
 
 ## Banco de Dados
 - **Dapper**: Utilizado como micro ORM para acessar o banco de dados SQL Server, proporcionando desempenho e simplicidade.
