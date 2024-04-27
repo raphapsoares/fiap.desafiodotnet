@@ -57,6 +57,8 @@ ipch/
 *.vsp
 *.vspx
 
+FileContentIndex/*.idx
+
 # Guidance Automation Toolkit
 *.gpState
 

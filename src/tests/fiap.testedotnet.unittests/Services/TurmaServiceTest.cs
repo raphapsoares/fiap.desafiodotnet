@@ -132,7 +132,7 @@ namespace fiap.testedotnet.unittests.Services
             listaRelacionamento.Add(new Relacionamento { AlunoId = 1, TurmaId = 1 });
 
             _mocker.GetMock<ITurmaRepository>().Setup(x => x.Obter(It.IsAny<int>())).ReturnsAsync(new Turma());
-            _mocker.GetMock<ITurmaRepository>().Setup(x => x.Deletar(It.IsAny<int>())).ReturnsAsync(false);
+            _mocker.GetMock<ITurmaRepository>().Setup(x => x.Deletar(It.IsAny<int>())).ReturnsAsync(true);
             _mocker.GetMock<IRelacionamentoRepository>().Setup(x => x.ObterListaPorAluno(It.IsAny<int>())).ReturnsAsync(listaRelacionamento);
             _mocker.GetMock<IRelacionamentoRepository>().Setup(x => x.DeletarPorAluno(It.IsAny<int>())).ReturnsAsync(true);
 

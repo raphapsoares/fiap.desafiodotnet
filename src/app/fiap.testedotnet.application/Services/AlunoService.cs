@@ -52,7 +52,7 @@ namespace fiap.testedotnet.application.Services
             if (!resultado)
             {
                 validacoes.Add("Ocorreu um erro ao excluir o aluno");
-                return new RequestResult(true, validacoes);
+                return new RequestResult(false, validacoes);
             }
 
             validacoes.Add("Aluno excluido com sucesso!");
